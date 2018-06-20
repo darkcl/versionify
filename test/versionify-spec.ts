@@ -32,4 +32,18 @@ describe("Versionify", () => {
     );
     expect(funcV1()).to.equal("hello 1.0.1");
   });
+
+  it("should cache file paths", () => {
+    const sut: Versionify = new Versionify("1.0.0");
+
+    const funcV1: Function = sut.invoke(
+      join(__dirname, "./fixture"),
+      "func",
+      "hello"
+    );
+    const pathCache = sut["pathCache"];
+    expect(pathCache[`${join(__dirname, "./fixture")}-func`].length).to.equal(
+      2
+    );
+  });
 });
