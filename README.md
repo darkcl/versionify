@@ -19,7 +19,7 @@ exports.hello = function() {
 - To use the `Versionify` class in a TypeScript file -
 
 ```ts
-import { Versionify } from "versionify";
+import { Versionify } from "versionify-js";
 
 const versionify = new Versionify("1.0.0");
 const funcV1: Function = versionify.invoke(
