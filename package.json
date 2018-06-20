@@ -49,7 +49,8 @@
       "src/**/*.ts"
     ],
     "exclude": [
-      "lib"
+      "lib",
+      "src/index.ts"
     ],
     "extension": [
       ".ts"
@@ -57,6 +58,7 @@
     "require": [
       "ts-node/register"
     ],
-    "reporter": []
+    "reporter": [],
+    "all": true
   }
 }
