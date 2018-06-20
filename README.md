@@ -42,7 +42,7 @@ console.log(funcV101()); // hello 1.0.1
 
 ```js
 const versionify = new Versionify("1.0.0");
-const funcV1: Function = versionify.invoke(
+const funcV1 = versionify.invoke(
   join(__dirname, "./functions"),
   "func",
   "hello"
@@ -50,7 +50,7 @@ const funcV1: Function = versionify.invoke(
 console.log(funcV1()); // hello 1.0.0
 
 const versionify2 = new Versionify("1.0.1");
-const funcV101: Function = versionify2.invoke(
+const funcV101 = versionify2.invoke(
   join(__dirname, "./functions"),
   "func",
   "hello"
