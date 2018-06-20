@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "versionify is a tool to read different version of js files",
   "license": "MIT",
-  "repository": "",
+  "repository": "git@github.com:darkcl/versionify.git",
   "author": "Yeung Yiu Hung",
   "keywords": [
-    ""
+    "versioning",
+    "bluegreen"
   ],
   "files": [
     "lib"
