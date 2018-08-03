@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- This CHANGELOG file!
 - Middleware for expressjs
 
 [unreleased]: https://github.com/darkcl/versionify/compare/0.0.1...HEAD
