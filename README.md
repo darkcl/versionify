@@ -2,7 +2,7 @@
 
 ## Usage
 
-- Create different version files in the same directory
+### Create different version files in the same directory
 
 ```js
 // `/functions/func.1.0.0.js
@@ -16,7 +16,7 @@ exports.hello = function() {
 };
 ```
 
-- To use the `Versionify` class in a TypeScript file -
+### To use the `Versionify` class in a TypeScript file
 
 ```ts
 import { Versionify } from "versionify-js";
@@ -38,7 +38,7 @@ const funcV101: Function = versionify2.invoke(
 console.log(funcV101()); // hello 1.0.1
 ```
 
-- To use the `Versionify` class in a JavaScript file -
+### To use the `Versionify` class in a JavaScript file
 
 ```js
 const versionify = new Versionify("1.0.0");

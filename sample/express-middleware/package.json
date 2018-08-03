@@ -1,0 +1,15 @@
+{
+  "name": "versionify-middleware-sample",
+  "version": "1.0.0",
+  "description": "Sample Code for express middleware",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yeung Yiu Hung",
+  "license": "MIT",
+  "devDependencies": {
+    "connect": "^3.6.6",
+    "supertest": "^3.1.0"
+  }
+}

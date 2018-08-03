@@ -1,6 +1,21 @@
 import { join } from "path";
 
 import * as fs from "fs";
+import * as semver from "semver";
+
+export function VersionifyMiddleware(
+  defaultVersion: string = "1.0.0",
+  headerValue: string = "x-api-version"
+) {
+  return function(req, res, next) {
+    const ver: string = req.headers[headerValue] || defaultVersion;
+    if (semver.valid(ver)) {
+      req["versionify"] = new Versionify(ver);
+    }
+
+    next();
+  };
+}
 
 export class Versionify {
   private pathCache: { [key: string]: string[] } = {};
