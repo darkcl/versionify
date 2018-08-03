@@ -2,6 +2,18 @@
 
 ## Usage
 
+### Using with express middleware
+
+```js
+import { VersionifyMiddleware } from "versionify-js";
+
+app.use(VersionifyMiddleware("1.0.1", "endpoint-version"));
+
+app.get("/", function(req, res, next) {
+  console.log(req.versionify); // Versionify object
+});
+```
+
 ### Create different version files in the same directory
 
 ```js
