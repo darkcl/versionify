@@ -7,9 +7,9 @@
 ### Using with express middleware
 
 ```js
-import { VersionifyMiddleware } from "versionify-js";
+import { versioning } from "versionify-js";
 
-app.use(VersionifyMiddleware("1.0.1", "endpoint-version"));
+app.use(versioning("1.0.1", "endpoint-version"));
 
 app.get("/", function(req, res, next) {
   console.log(req.versionify); // Versionify object
