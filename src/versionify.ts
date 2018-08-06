@@ -24,13 +24,19 @@ export class Versionify {
 
   public invoke(path: string, root: string, funcName: string) {
     const allVersions: string[] = this.getFiles(path, root);
-
+    const versionsArr: string[] = allVersions
+      .map(val => val.replace(`${root}.`, "").replace(".js", ""))
+      .filter(val => val !== "js")
+      .sort();
     try {
       const result = require(join(path, `${root}.${this.version}`));
       return result[funcName];
     } catch (e) {
       let file = allVersions[allVersions.length - 1];
-      if (file.replace(".js", "") === root) {
+      if (
+        file.replace(".js", "") === root &&
+        semver.gt(this.version, versionsArr[versionsArr.length - 1])
+      ) {
         file = allVersions[allVersions.length - 2];
       }
       const result = require(join(path, file));
