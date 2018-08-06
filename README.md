@@ -1,6 +1,6 @@
 # Versionify
 
-[![Build Status](https://travis-ci.org/darkcl/versionify.svg?branch=master)](https://travis-ci.org/darkcl/versionify)
+[![Build Status](https://travis-ci.org/darkcl/versionify.svg?branch=master)](https://travis-ci.org/darkcl/versionify) [![Coverage Status](https://coveralls.io/repos/github/darkcl/versionify/badge.svg?branch=master)](https://coveralls.io/github/darkcl/versionify?branch=master)
 
 ## Usage
 
