@@ -1,6 +1,6 @@
 {
   "name": "versionify-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "versionify is a tool to read different versions of js files",
   "license": "MIT",
   "repository": "git@github.com:darkcl/versionify.git",
