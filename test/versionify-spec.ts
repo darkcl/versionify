@@ -22,7 +22,7 @@ describe("Versionify", () => {
     expect(funcV101()).to.equal("hello 1.0.1");
   });
 
-  it("should fallback version function", () => {
+  it("should fallback nearest version function", () => {
     const sut: Versionify = new Versionify("1.0.3");
 
     const funcV1: Function = sut.invoke(
@@ -31,6 +31,17 @@ describe("Versionify", () => {
       "hello"
     );
     expect(funcV1()).to.equal("hello 1.0.2");
+  });
+
+  it("should fallback nearest version function", () => {
+    const sut: Versionify = new Versionify("1.1.0");
+
+    const funcV1: Function = sut.invoke(
+      join(__dirname, "./fixture"),
+      "func",
+      "hello"
+    );
+    expect(funcV1()).to.equal("hello 1.0.8");
   });
 
   it("should fallback to previous version function", () => {
@@ -54,7 +65,7 @@ describe("Versionify", () => {
     );
     const pathCache = sut["pathCache"];
     expect(pathCache[`${join(__dirname, "./fixture")}-func`].length).to.equal(
-      4
+      5
     );
   });
 });

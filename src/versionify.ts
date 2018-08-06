@@ -17,27 +17,41 @@ export function VersionifyMiddleware(
   };
 }
 
+interface VersionInfo {
+  version: string;
+  path: string;
+}
+
 export class Versionify {
   private pathCache: { [key: string]: string[] } = {};
 
   constructor(private version: string) {}
 
   public invoke(path: string, root: string, funcName: string) {
+    const regex = new RegExp(`.*${root}.(.*?).js*`);
+
     const allVersions: string[] = this.getFiles(path, root);
-    const versionsArr: string[] = allVersions
-      .map(val => val.replace(`${root}.`, "").replace(".js", ""))
-      .filter(val => val !== "js")
-      .sort();
+    const defaultVersionFile: VersionInfo = allVersions
+      .filter(val => (val.match(regex) ? false : true))
+      .map(val => <VersionInfo>{ version: "default", path: val })[0];
+    const versionsArr: VersionInfo[] = allVersions
+      .filter(val => val.replace(`${root}.`, "").replace(".js", "") !== "js")
+      .map(val => {
+        let versionStr: string = val.replace(regex, "$1");
+        return <VersionInfo>{ version: versionStr, path: val };
+      })
+      .filter(val => semver.lt(val.version, this.version));
+
     try {
       const result = require(join(path, `${root}.${this.version}`));
       return result[funcName];
     } catch (e) {
-      let file = allVersions[allVersions.length - 1];
+      let file = defaultVersionFile.path;
       if (
-        file.replace(".js", "") === root &&
-        semver.gt(this.version, versionsArr[versionsArr.length - 1])
+        versionsArr.length != 0 &&
+        semver.gt(this.version, versionsArr[versionsArr.length - 1].version)
       ) {
-        file = allVersions[allVersions.length - 2];
+        file = versionsArr[versionsArr.length - 1].path;
       }
       const result = require(join(path, file));
       return result[funcName];
