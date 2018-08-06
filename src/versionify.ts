@@ -3,7 +3,7 @@ import { join } from "path";
 import * as fs from "fs";
 import * as semver from "semver";
 
-export function VersionifyMiddleware(
+export function versioning(
   defaultVersion: string = "1.0.0",
   headerValue: string = "x-api-version"
 ) {

@@ -1,4 +1,4 @@
-import { VersionifyMiddleware } from "../src";
+import { versioning } from "../src";
 import { expect } from "chai";
 import { join } from "path";
 
@@ -13,7 +13,7 @@ describe("VersionifyMiddleware", () => {
       nextCalled = true;
     };
 
-    const sut = VersionifyMiddleware("1.0.0");
+    const sut = versioning("1.0.0");
 
     sut(req, res, next);
 
@@ -34,7 +34,7 @@ describe("VersionifyMiddleware", () => {
       nextCalled = true;
     };
 
-    const sut = VersionifyMiddleware("1.0.0");
+    const sut = versioning("1.0.0");
 
     sut(req, res, next);
 
@@ -55,7 +55,7 @@ describe("VersionifyMiddleware", () => {
       nextCalled = true;
     };
 
-    const sut = VersionifyMiddleware("1.0.0", "endpoint-version");
+    const sut = versioning("1.0.0", "endpoint-version");
 
     sut(req, res, next);
 
@@ -76,7 +76,7 @@ describe("VersionifyMiddleware", () => {
       nextCalled = true;
     };
 
-    const sut = VersionifyMiddleware("1.0.0", "endpoint-version");
+    const sut = versioning("1.0.0", "endpoint-version");
 
     sut(req, res, next);
 
