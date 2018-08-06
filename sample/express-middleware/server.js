@@ -1,9 +1,10 @@
 const express = require("express");
+
 const app = express();
 
-const { VersionifyMiddleware } = require("./lib");
+const { versioning } = require("versionify-js");
 
-app.use(VersionifyMiddleware("1.0.0", "endpoint-version"));
+app.use(versioning("1.0.0", "endpoint-version"));
 
 app.get("/", (req, res) =>
   res.send(`Request require api version ${req.versionify["version"]}`)
