@@ -23,14 +23,14 @@ describe("Versionify", () => {
   });
 
   it("should fallback version function", () => {
-    const sut: Versionify = new Versionify("1.0.2");
+    const sut: Versionify = new Versionify("1.0.3");
 
     const funcV1: Function = sut.invoke(
       join(__dirname, "./fixture"),
       "func",
       "hello"
     );
-    expect(funcV1()).to.equal("hello 1.0.1");
+    expect(funcV1()).to.equal("hello 1.0.2");
   });
 
   it("should cache file paths", () => {
@@ -43,7 +43,7 @@ describe("Versionify", () => {
     );
     const pathCache = sut["pathCache"];
     expect(pathCache[`${join(__dirname, "./fixture")}-func`].length).to.equal(
-      2
+      4
     );
   });
 });

@@ -29,7 +29,11 @@ export class Versionify {
       const result = require(join(path, `${root}.${this.version}`));
       return result[funcName];
     } catch (e) {
-      const result = require(join(path, allVersions[allVersions.length - 1]));
+      let file = allVersions[allVersions.length - 1];
+      if (file.replace(".js", "") === root) {
+        file = allVersions[allVersions.length - 2];
+      }
+      const result = require(join(path, file));
       return result[funcName];
     }
   }
