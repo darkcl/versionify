@@ -23,6 +23,7 @@
     "build": "npm run format && npm run clean && npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
     "test": "npm run build && mocha --compilers ts:ts-node/register --recursive \"test/**/*-spec.ts\"",
     "coverage": "nyc --include=\"src/**/*.ts\" --reporter=text --reporter=html --reporter=lcov mocha --compilers ts:ts-node/register --recursive \"test/**/*-spec.ts\"",
+    "coverall": "nyc --include=\"src/**/*.ts\" --reporter=text-lcov mocha --compilers ts:ts-node/register --recursive \"test/**/*-spec.ts\" | coveralls",
     "watch": "npm run build -- --watch",
     "watch:coverage": "nodemon -e ts --exec \"npm test && lcov-badge ./coverage/lcov.info -o badge.png\" --watch src --watch test --watch package.json",
     "watch:test": "npm run test -- --watch"
