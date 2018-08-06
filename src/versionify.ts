@@ -35,7 +35,7 @@ export class Versionify {
       .filter(val => (val.match(regex) ? false : true))
       .map(val => <VersionInfo>{ version: "default", path: val })[0];
     const versionsArr: VersionInfo[] = allVersions
-      .filter(val => val.replace(`${root}.`, "").replace(".js", "") !== "js")
+      .filter(val => (val.match(regex) ? true : false))
       .map(val => {
         let versionStr: string = val.replace(regex, "$1");
         return <VersionInfo>{ version: versionStr, path: val };
