@@ -1,5 +1,7 @@
 # Versionify
 
+[![Build Status](https://travis-ci.org/darkcl/versionify.svg?branch=master)](https://travis-ci.org/darkcl/versionify)
+
 ## Usage
 
 ### Using with express middleware
